@@ -1,25 +1,36 @@
 #!bin/bash
 
-sudo pacman-db-upgrade && sync
+echo "Adding repos..."
+sudo bash ./repos.sh
 
-sudo pacman -R vim-tiny chromium
+echo "Updating system..."
+sudo apt-get update && sudo apt-get upgrade && sudo apt-get dist-upgrade
 
-echo "Updating..."
-sudo pacman -Syu
+sudo apt-get remove --purge chromium
 
 echo "Essentials..."
-sudo pacman -Sy $(cat ./data/essentials.list | grep -v '#')
+sudo apt-get install -y $(cat ./data/essentials.list | grep -v '#')
 echo "Done essentials..."
 sleep 1
 
 echo "Extras..."
-yay -Sy $(cat ./data/extra.list | grep -v '#')
+sudo apt-get install -y $(cat ./data/extra.list | grep -v '#')
 echo "Done extras..."
 sleep 1
 
 echo "Development..."
-yay -Sy $(cat ./data/development.list | grep -v '#')
+sudo apt-get install -y $(cat ./data/development.list | grep -v '#')
 echo "Done development..."
+sleep 1
+
+echo "Snaps..."
+while read line; do
+    if [ ${line:0:1} == "#" ]; then
+        break
+    fi
+    sudo snap install $line
+done < ./data/snaps.list
+echo "Done snaps..."
 sleep 1
 
 wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh
@@ -29,23 +40,27 @@ chsh -s $(which zsh)
 curl http://j.mp/spf13-vim3 -L -o - | sh
 
 ### npm no sudo
-wget -O- https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh | zsh
+wget -O- https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh | bash
 
 npm install -g @angular/cli @vue/cli yarn
 
-# # Virtualbox
-sudo gpasswd -a $USER vboxusers
-systemctl enable vboxweb.service
+### Kite (python AI)
+bash -c “$(wget -q -O – https://linux.kite.com/dls/linux/current)”
+
+### Configs
+git config --global user.email "calin.s.bogdan@gmail.com"
+git config --global user.name "Bogdan Calin"
+
 
 # # docker
-systemctl enable docker.service
-systemctl start docker.service
+#systemctl enable docker.service
+#systemctl start docker.service
 
-sudo groupadd docker
-sudo gpasswd -a $USER docker
+#sudo groupadd docker
+#sudo gpasswd -a $USER docker
 
 # .zshrc, bash_aliases, bash_functions, etc.
-cp -TRv ./files/ ~/
-touch ~/.zshrc-extra
+#cp -TRv ./files/ ~/
+#touch ~/.zshrc-extra
 
 echo "Done!!!!"

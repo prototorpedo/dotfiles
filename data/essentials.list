@@ -1,4 +1,6 @@
-yay
+apt-transport-https
+ca-certificates
+software-properties-common
 git
 cups-pdf
 unace
@@ -9,7 +11,7 @@ p7zip
 sharutils
 wget
 curl
-openssh
 transmission-gtk
 youtube-dl
 httrack
+rofi

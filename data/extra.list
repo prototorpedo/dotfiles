@@ -1,7 +1,12 @@
-brave
-dropbox
+brave-browser
+brave-keyring
+thunar-dropbox-plugin
+thunar-vcs-plugin
+thunar-archive-plugin
+thunar-gtkhash
+thunar-volman
+thunar-media-tags-plugin  
 shutter
-fluxgui
+snapd
 furiusisomount
-vivaldi
 playonlinux

@@ -94,7 +94,7 @@ source ~/.bash_aliases
 # Functions
 source ~/.bash_functions
 
-export NPM_PACKAGES="/home/bcalin/.npm-packages"
+export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 # Unset manpath so we can inherit from /etc/manpath via the `manpath`
