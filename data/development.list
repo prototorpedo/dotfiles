@@ -1,11 +1,11 @@
 terminator
 zsh
-atom
 sublime-text-dev
-tor-browser
 tor
-vagrant
 git-extras
+python-pylint
+python-pyflakes
+python-pycodestyle
 python-pip
 python-pipenv
 python-virtualenv
@@ -13,11 +13,8 @@ pycharm-community-edition
 postman
 sqlite
 vim
-vagrant
-virtualbox
-virtualbox-guest-iso
-virtualbox-guest-utils
 docker
 docker-compose
 nodejs
 npm
+ruby

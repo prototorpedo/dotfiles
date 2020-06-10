@@ -2,7 +2,7 @@
 
 sudo pacman-db-upgrade && sync
 
-sudo pacman -R vim-tiny chromium
+sudo pacman -R vim-tiny i3lock chromium
 
 echo "Updating..."
 sudo pacman -Syu
@@ -31,21 +31,26 @@ curl http://j.mp/spf13-vim3 -L -o - | sh
 ### npm no sudo
 wget -O- https://raw.githubusercontent.com/glenpike/npm-g_nosudo/master/npm-g-nosudo.sh | zsh
 
-npm install -g @angular/cli @vue/cli yarn
-
-# # Virtualbox
-sudo gpasswd -a $USER vboxusers
-systemctl enable vboxweb.service
+npm install -g @angular/cli @vue/cli yarn eslint eslint-plugin-vue sass-lint typescript json-server
 
 # # docker
 systemctl enable docker.service
 systemctl start docker.service
 
+# Add firewall rule
+sudo firewall-cmd --permanent --zone=trusted --add-interface=docker0
+
 sudo groupadd docker
 sudo gpasswd -a $USER docker
 
 # .zshrc, bash_aliases, bash_functions, etc.
-cp -TRv ./files/ ~/
-touch ~/.zshrc-extra
+cp -TRv ./files/ $HOME/
+touch $HOME/.zshrc-extra
+
+# Sublime Text config
+dropbox ~
+cd ~/.config/sublime-text-3/Packages/
+rm -r User
+ln -s ~/Dropbox/Sublime/User
 
 echo "Done!!!!"

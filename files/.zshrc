@@ -3,12 +3,11 @@
 
 # Path to your oh-my-zsh installation.
 export ZSH=~/.oh-my-zsh
-export PATH="$PATH:$HOME/.config/composer/vendor/bin"
 
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="random"
+ZSH_THEME="arrow"
 
 if [[ -r ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh ]]; then
     source ~/.local/lib/python2.7/site-packages/powerline/bindings/zsh/powerline.zsh
@@ -56,7 +55,7 @@ ENABLE_CORRECTION="false"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git git-extras github gitfast grunt gulp heroku jira jsontools laravel5 node npm sublime sudo symfony2 systemd vagrant bundler ruby bower capistrano colorize composer common-aliases archlinux docker)
+plugins=(git git-extras github gitfast heroku jira jsontools laravel5 node npm sublime sudo symfony2 systemd bundler ruby bower capistrano colorize composer common-aliases archlinux docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -94,7 +93,7 @@ source ~/.bash_aliases
 # Functions
 source ~/.bash_functions
 
-export NPM_PACKAGES="/home/bcalin/.npm-packages"
+export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 export PATH="$NPM_PACKAGES/bin:$PATH"
 # Unset manpath so we can inherit from /etc/manpath via the `manpath`
