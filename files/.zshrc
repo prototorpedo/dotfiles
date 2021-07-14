@@ -93,6 +93,7 @@ source ~/.bash_aliases
 # Functions
 source ~/.bash_functions
 
+# npm
 export NPM_PACKAGES="$HOME/.npm-packages"
 export NODE_PATH="$NPM_PACKAGES/lib/node_modules${NODE_PATH:+:$NODE_PATH}"
 export PATH="$NPM_PACKAGES/bin:$PATH"
@@ -101,4 +102,8 @@ export PATH="$NPM_PACKAGES/bin:$PATH"
 unset MANPATH  # delete if you already modified MANPATH elsewhere in your config
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
-source ~/.zshrc-extra
+# Composer
+export PATH="$PATH:$HOME/.config/composer/vendor/bin"
+
+# id_rsa
+eval `keychain --agents ssh --eval ~/.ssh/id_rsa`

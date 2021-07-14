@@ -25,6 +25,13 @@ alias gss="git status -s | cat -n"
 alias gst="git stash"
 alias gsync="git fetch --prune && git rebase origin/develop"
 
+### PHP
+alias artisan="php artisan"
+
+### Docker
+alias dco="docker-compose"
+alias dcoe="docker-compose exec"
+alias de="docker exec -ti"
 
 ### Others
 unalias lt
