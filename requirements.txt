@@ -1,0 +1,26 @@
+anki x
+vscode x
+terminator x
+obsidian x
+docker x
+valentina-studio
+spotify x
+teams x
+discord x
+telegram x
+brave x
+dropbox x
+postman x
+nordvpn x
+onlyoffice?
+TA-Lib
+R x
+IRkernel
+jupyter-notebook x
+openbb
+ai-ml
+talib
+octosql
+
+ta-lib
+pip install TA-Lib

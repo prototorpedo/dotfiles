@@ -1,0 +1,16 @@
+pandas
+numpy
+matplotlib
+yfinance
+jupyter
+jupyterlab
+technical
+itables
+ccxt
+requests
+python-dotenv
+scipy
+freqtrade
+scikit-learn
+sqlalchemy
+TA-Lib
