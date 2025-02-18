@@ -32,6 +32,17 @@ alias artisan="php artisan"
 alias dco="docker-compose"
 alias dcoe="docker-compose exec"
 alias de="docker exec -ti"
+alias dfimage="docker run -v /var/run/docker.sock:/var/run/docker.sock --rm alpine/dfimage"
 
 ### Others
 unalias lt
+# alias yt-dlp="python ~/.local/bin/yt-dlp"
+
+alias autoclick="xdotool click --delay 10000 --repeat 200 1"
+
+alias vpn-oltenitei="wg-quick up raspberry-vpn"
+alias vpn-oltenitei_down="wg-quick down raspberry-vpn"
+
+alias ssh-oltenitei="ssh prototorpedo-home.go.ro"
+
+alias pkgsizes='dpkg-query --show --showformat="\${Package;-50}\t\${Installed-Size}\n" | sort -k 2 -n | grep -v deinstall'

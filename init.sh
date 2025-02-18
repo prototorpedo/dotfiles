@@ -52,12 +52,13 @@ read -n "####### Done composer..."
 
 # Python stuff
 # talib
-git clone git@github.com:prototorpedo/talib-precision-fix.git ~/Downloads/talib
-cd ~/Downloads/talib
+git clone git@github.com:prototorpedo/talib-precision-fix.git talib
+cd talib
 ./configure --prefix=/usr
 make
-make install
+sudo make install
 
+cd ..
 pip install --upgrade pip
 pip install $(cat ./data/pip.list | grep -v '#')
 
@@ -67,7 +68,7 @@ Rscript -e "install.packages('IRkernel')"
 Rscript -e "IRkernel::installspec()"
 jupyter labextension install @techrah/text-shortcuts
 
-# # docker
+## docker
 systemctl enable docker.service
 systemctl start docker.service
 

@@ -30,3 +30,26 @@ function gsearchday () {
 
 	git log --after="$YYYY-$MM-$DD 00:00" --before="$YYYY-$MM-$DD 23:59" --all --author="Bogdan Calin"
 }
+
+function zealstreamdl () {
+    streamlink --http-header "referer"="https://player.zealstream.com/" --http-header "User-Agent"="Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:90.0) Gecko/20100101 Firefox/90.0" $1 best -o $2
+}
+
+function mp4tomp3 () {
+    ffmpeg -i $1 -vn \
+       -acodec libmp3lame -ac 2 -ab 160k -ar 48000 \
+        $1.mp3
+}
+
+function mp3slice () {
+    ffmpeg -t $2 -i $1 -acodec copy "$1-sliced.mp3"
+}
+
+function renameall () {
+    rename 's/^$1/$2/' $1*
+}
+
+function mkcd () {
+    if [ ! -d $1 ] ; then mkdir $1
+    cd $1
+}
